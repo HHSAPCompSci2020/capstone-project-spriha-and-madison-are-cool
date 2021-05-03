@@ -1,4 +1,4 @@
 
-public class FlappyBird {
+public class FlappyBird extends MovingImage {
 
 }
