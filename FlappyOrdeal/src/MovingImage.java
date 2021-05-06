@@ -7,13 +7,17 @@ import processing.core.PImage;
  * 
  * @author Madison Tippett
  */
+/**
+ * Represents a moving image
+ * 
+ * @author Madison Tippett
+ */
 public class MovingImage extends Rectangle2D.Double {
 	private PImage image;
 
 	/**
-	 * Contructor for the MovingImage
+	 * Constructor for the MovingImage
 	 * 
-	 * @param img The image for the moving image
 	 * @param x The x coordinate for the moving image
 	 * @param y The y coordinate for the moving image
 	 * @param w The width of the moving image
