@@ -42,7 +42,8 @@ public class FoodTester extends PApplet {
 			if(start)
 			food.act();
 			if(!food.intersects(screenRect)) {
-				while(foods.size() < 3) {
+				foods.remove(i);
+				while(foods.size() < 4) {
 					newFood(food);
 				}
 			}
