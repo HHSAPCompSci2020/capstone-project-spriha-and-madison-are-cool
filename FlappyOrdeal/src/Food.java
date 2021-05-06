@@ -10,6 +10,7 @@ import processing.core.PApplet;
  */
 public class Food  extends Rectangle2D.Double{
 	private double energy;
+	private double xVelocity;
 	/**
 	 * Constructs a Food object with the given coordinates 
 	 * @param x The x - coordinate of the top left corner of the food
@@ -18,6 +19,7 @@ public class Food  extends Rectangle2D.Double{
 	public Food(double x, double y) {
 		super(x, y, 30, 30);
 		energy = 5;
+		xVelocity = Math.random() * 2;
 	}
 	/**
 	 * Returns the value of the energy that the food provides to the bird
@@ -30,7 +32,7 @@ public class Food  extends Rectangle2D.Double{
 	 * Moves the Food to the left
 	 */
 	public void act() {
-		super.x -= 1;
+		super.x -= xVelocity;
 	}
 	/**
 	 * Draws the Food object on the given PApplet
