@@ -12,7 +12,7 @@ Instructions (Assuming we implement the stretch features):
 While playing the game
 * Up arrow to flap upwards
 * Down arrow to dive down
-* If the player does not press either of the two buttons, the bird crashes to the ground.
+* If the player does not press either of the two buttons, the bird continues to move in the horizontal direction without any displacement in the vertical direction.
 * At the end of each round, there will be a pop up showing how many points, stars and coins were earned. 
 * The player will have two options, they can click on the “play again” button or click on the “Shop” button to purchase items from the shop.
 In the Shop
