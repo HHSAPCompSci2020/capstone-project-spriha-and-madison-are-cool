@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import processing.core.PApplet;
 import processing.core.PImage;
 
-/*
+/**
  * Obstacle is a class that represents all the possible obstacles (pipes, moving pipes, diving birds)
  * @author Madison Tippett
  */
@@ -12,7 +12,7 @@ public class Obstacle extends MovingImage {
 
 	private ArrayList<Shape> pipes;
 
-	/*
+	/**
 	 * Creats a constructor for obstacle
 	 * 
 	 * @param img
@@ -26,7 +26,7 @@ public class Obstacle extends MovingImage {
 		// TODO Auto-generated constructor stub
 	}
 	
-	/*
+	/**
 	 * Draws the obstacle and displays the obstacles on the PApplet
 	 * 
 	 * @param p The PApplet on which the bird is drawn
