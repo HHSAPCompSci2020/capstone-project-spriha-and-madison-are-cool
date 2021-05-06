@@ -21,9 +21,8 @@ public class Obstacle extends MovingImage {
 	 * @param w The width of the obstacle
 	 * @param h The height of the obstacle
 	 */
-	public Obstacle(PImage img, int x, int y, int w, int h) {
-		super(img, x, y, w, h);
-		// TODO Auto-generated constructor stub
+	public Obstacle(double x, double y, double w, double h) {
+		super(x, y, w, h);
 	}
 	
 	/**

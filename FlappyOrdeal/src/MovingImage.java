@@ -64,7 +64,7 @@ public class MovingImage extends Rectangle2D.Double {
 		y = Math.max(0, y);
 	}
 
-	/*
+	/**
 	 * Draws the moving image
 	 * 
 	 * @param p The PApplet which to draw on
