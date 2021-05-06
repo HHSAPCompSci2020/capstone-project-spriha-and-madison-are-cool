@@ -8,13 +8,13 @@ import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 
 public class Main extends JFrame {
-	FoodTester foodTester;
+	DrawingSurface drawingSurface;
 	
 	public Main(String title) {
 		super(title);
-		foodTester = new FoodTester();
-		PApplet.runSketch(new String[]{""}, foodTester);
-		PSurfaceAWT surf = (PSurfaceAWT) foodTester.getSurface();
+		drawingSurface = new DrawingSurface();
+		PApplet.runSketch(new String[]{""}, drawingSurface);
+		PSurfaceAWT surf = (PSurfaceAWT) drawingSurface.getSurface();
 		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
 		JFrame window = (JFrame)canvas.getFrame();
 

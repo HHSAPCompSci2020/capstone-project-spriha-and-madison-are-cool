@@ -84,7 +84,9 @@ External Credit:
 Flappy Bird idea: Dong Nguyen and dotGears
 Graphics[b]:
 * Flappy Bird game
-* Processing
+* Processing library
+* Key methods in DrawingSurface - AnimationDemoProcessing
+* MovingImage class - AnimationDemoProcessing
 
 
 [a]Do coins in the shop only apply to that run-through of the game (when the game is closed, is the amount of coins saved?)

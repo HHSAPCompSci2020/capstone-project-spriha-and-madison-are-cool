@@ -10,7 +10,7 @@ import processing.core.PImage;
 public class MovingImage extends Rectangle2D.Double {
 	private PImage image;
 
-	/*
+	/**
 	 * Contructor for the MovingImage
 	 * 
 	 * @param img The image for the moving image
@@ -19,12 +19,12 @@ public class MovingImage extends Rectangle2D.Double {
 	 * @param w The width of the moving image
 	 * @param h The height of the moving image
 	 */
-	public MovingImage(PImage img, int x, int y, int w, int h) {
+	public MovingImage(double x, double y, double w, double h) {
 		super(x, y, w, h);
-		image = img;
+		//image = img;
 	}
 
-	/*
+	/**
 	 * Moves the image to (x, y)
 	 * 
 	 * @param x the new x coordinate of the image
@@ -36,7 +36,7 @@ public class MovingImage extends Rectangle2D.Double {
 		super.y = y;
 	}
 	
-	/*
+	/**
 	 * Moves the image by x, y amount
 	 * 
 	 * @param x the new x coordinate of the image
@@ -47,7 +47,7 @@ public class MovingImage extends Rectangle2D.Double {
 		super.y += y;
 	}
 
-	/*
+	/**
 	 * Applies the window limits for the MovingImage
 	 * 
 	 * @param windowWidth the width of the window
@@ -66,6 +66,6 @@ public class MovingImage extends Rectangle2D.Double {
 	 * @param p The PApplet which to draw on
 	 */
 	public void draw(PApplet p) {
-		g.image(image, (int) x, (int) y, (int) width, (int) height);
+		p.image(image, (int) x, (int) y, (int) width, (int) height);
 	}
 }

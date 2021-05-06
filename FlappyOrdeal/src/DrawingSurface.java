@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import processing.core.PApplet;
 import processing.core.PImage;
 
-public class FoodTester extends PApplet {
+public class DrawingSurface extends PApplet {
 	private FlappyBird flappyBird;
 	ArrayList <Food> foods = new ArrayList<Food>() ;
 	private ArrayList<Integer> keys;
@@ -15,7 +15,7 @@ public class FoodTester extends PApplet {
 	public static final int DRAWING_HEIGHT = 504;
 
 	
-	public FoodTester() {
+	public DrawingSurface() {
 		flappyBird = new FlappyBird(150, 50);
 		foods.add(new Food(150, 100));
 		foods.add(new Food(500, 110));

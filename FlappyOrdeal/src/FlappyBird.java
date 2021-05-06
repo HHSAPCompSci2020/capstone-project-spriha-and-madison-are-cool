@@ -39,7 +39,7 @@ public class FlappyBird extends MovingImage {
 	 */
 	public void act(ArrayList <Food> food, ArrayList <Obstacle> obstacles) {
 		stamina -= 0.001;
-		if(y < 0 || y >= FoodTester.DRAWING_HEIGHT || stamina < 0) {
+		if(y < 0 || y >= DrawingSurface.DRAWING_HEIGHT || stamina < 0) {
 			y += 5;
 		}
 		for(int i = 0; i < food.size(); i++) {
