@@ -13,7 +13,7 @@ public class Obstacle extends MovingImage {
 	private ArrayList<Shape> pipes;
 
 	/**
-	 * Creats a constructor for obstacle
+	 * Creates a constructor for obstacle
 	 * 
 	 * @param img
 	 * @param x The x coordinate for the obstacle
