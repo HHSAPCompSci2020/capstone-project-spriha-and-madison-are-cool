@@ -11,7 +11,7 @@ public class MovingImage extends Rectangle2D.Double {
 	private PImage image;
 
 	/**
-	 * Contructor for the MovingImage
+	 * Constructor for the MovingImage
 	 * 
 	 * @param img The image for the moving image
 	 * @param x The x coordinate for the moving image
