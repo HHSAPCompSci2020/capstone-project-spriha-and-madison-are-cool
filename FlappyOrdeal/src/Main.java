@@ -8,18 +8,18 @@ import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 
 public class Main extends JFrame {
-	DrawingSurface drawingSurface;
+	FlappyBirdGame flappyBirdGame;
 	
 	public Main(String title) {
 		super(title);
-		drawingSurface = new DrawingSurface();
-		PApplet.runSketch(new String[]{""}, drawingSurface);
-		PSurfaceAWT surf = (PSurfaceAWT) drawingSurface.getSurface();
+		flappyBirdGame = new FlappyBirdGame();
+		PApplet.runSketch(new String[]{""}, flappyBirdGame);
+		PSurfaceAWT surf = (PSurfaceAWT) flappyBirdGame.getSurface();
 		PSurfaceAWT.SmoothCanvas canvas = (PSurfaceAWT.SmoothCanvas) surf.getNative();
 		JFrame window = (JFrame)canvas.getFrame();
 
-		window.setSize(900, 504);
-		window.setMinimumSize(new Dimension(100,100));
+		window.setSize(FlappyBirdGame.DRAWING_WIDTH, FlappyBirdGame.DRAWING_HEIGHT);
+		window.setMinimumSize(new Dimension(FlappyBirdGame.DRAWING_WIDTH,FlappyBirdGame.DRAWING_HEIGHT));
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setResizable(false);
 		

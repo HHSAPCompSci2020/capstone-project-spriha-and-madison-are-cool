@@ -32,8 +32,8 @@ public class Obstacle extends MovingImage {
 	 * @param h   The height of the obstacle
 	 * @param wiggle How much the obstacle "wiggles" (moves up and down)
 	 */
-	public Obstacle(double x, double y, double w, double h, int wiggle) {
-		super(x, y, w, h);
+	public Obstacle(double x, double y, double h, int wiggle) {
+		super(x, y, 80, h);
 
 		xVelocity = 1;
 		direction = 1;
