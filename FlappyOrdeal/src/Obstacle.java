@@ -10,7 +10,8 @@ import processing.core.PImage;
  */
 public class Obstacle extends MovingImage {
 
-	private ArrayList<Shape> pipes;
+	// private ArrayList<Shape> pipes;
+	private double xVelocity;
 
 	/**
 	 * Creates a constructor for obstacle
@@ -23,6 +24,15 @@ public class Obstacle extends MovingImage {
 	 */
 	public Obstacle(double x, double y, double w, double h) {
 		super(x, y, w, h);
+		
+		xVelocity = 1;
+		
+//		pipes.add(e);
+	}
+	
+	public void act() {
+		super.x -= xVelocity;
+		
 	}
 	
 	/**
@@ -31,11 +41,17 @@ public class Obstacle extends MovingImage {
 	 * @param p The PApplet on which the bird is drawn
 	 */
 	public void draw(PApplet p) {
-		pipes = new ArrayList<Shape>();
-		pipes.add(new Rectangle(50, 0, 50, 100));
-		pipes.add(new Rectangle(50, 350, 50, 500));
-		pipes.add(new Rectangle(200, 0, 200, 200));
-		pipes.add(new Rectangle(200, 0, 200, 400));
+		
+		
+		// work out the height of the remainder
+		// y = 504 - height - 115
+		float height2 = (float) (504 - height - 115);
+		
+		p.fill(0, 255, 0);
+		p.rect((float) x, (float) y, (float) width, (float) height);
+		p.rect((float) x, (float) (y + height + 115), (float) width, (float) height2);
+		p.noFill();
+
 
 	}
 
