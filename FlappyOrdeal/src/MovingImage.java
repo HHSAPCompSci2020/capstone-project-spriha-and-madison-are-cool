@@ -7,7 +7,11 @@ import processing.core.PImage;
  * 
  * @author Madison Tippett
  */
-
+/**
+ * Represents a moving image
+ * 
+ * @author Madison Tippett
+ */
 public class MovingImage extends Rectangle2D.Double {
 	private PImage image;
 

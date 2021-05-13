@@ -1,43 +1,44 @@
+import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
 
-public class Food extends MovingImage {
-	private static double foodWidth = 50 ;
-	private static double foodHeight = 50 ;
-	
-	private int quantity ;
-	
-
-	public Food(int x, int startY, int height) {
-		super(x,Math.random() * (height - 100) + startY + foodHeight , foodWidth,foodHeight);
-		quantity = (int)(Math.random() * 20) ;
+import processing.core.PApplet;
+/**
+ * The Food class represents objects that the FlappyBird can collect to gain stamina
+ * @author sprihapandey
+ *
+ */
+public class Food  extends Rectangle2D.Double{
+	private double energy;
+	private double xVelocity;
+	/**
+	 * Constructs a Food object with the given coordinates 
+	 * @param x The x - coordinate of the top left corner of the food
+	 * @param y The y - coordinate of the top left corner of the food
+	 */
+	public Food(double x, double y) {
+		super(x, y, 30, 30);
+		energy = 5;
+		xVelocity = Math.random() * 2;
 	}
-	
-	public boolean move(int speed) {
-		this.moveByAmount(-speed, 0);
-		if(x < -foodWidth) {
-			return false ;
-		}
-		return true ;
+	/**
+	 * Returns the value of the energy that the food provides to the bird
+	 * @return The value of the energy that the food provides to the bird
+	 */
+	public double getEnergy() {
+		return energy;
 	}
-	
-	public void draw(FlappyBirdGame app) {
-		app.pushStyle();
-
-		app.fill(255,0,0);
-		app.ellipse((float)x,(float)y,(float)width,(float)height);
-		
-		app.fill(0);
-		app.stroke(0);
-		app.textSize(15);
-		app.strokeWeight(10);
-		app.textAlign(FlappyBirdGame.CENTER);
-		app.text(Integer.toString(quantity), (float)(x) , (float)(y+5));
-		
-		app.popStyle();
+	/**
+	 * Moves the Food to the left
+	 */
+	public void act() {
+		super.x -= xVelocity;
 	}
-
-	public int quantity() {
-		// TODO Auto-generated method stub
-		return quantity ;
+	/**
+	 * Draws the Food object on the given PApplet
+	 * @param surface The PApplet on which the Food is drawn
+	 */
+	public void draw(PApplet surface) {
+		surface.rect((float)x, (float)y, 30f, 30f);
 	}
 }

@@ -37,6 +37,7 @@ public class Obstacle extends MovingImage {
 	 * @param h   The height of the obstacle
 	 * @param wiggle How much the obstacle "wiggles" (moves up and down)
 	 */
+<<<<<<< HEAD
 	public Obstacle(double x, double y, double h) {
 		super(x, y, 80, h);
 		double topHeight = Math.random() * (0.69 * height) + 0.01 * height;
@@ -48,6 +49,11 @@ public class Obstacle extends MovingImage {
 		shiftIncrement = (float) -1 ;
 		minShiftExtent = 50 ;
 		maxShiftExtent = (int)height - 50 ;
+=======
+	public Obstacle(double x, double y, double w, double h, int wiggle) {
+		super(x, y, w, h);
+
+>>>>>>> parent of ccc30bc (Update)
 		xVelocity = 1;
 		direction = 1;
 		heightStart = height;
