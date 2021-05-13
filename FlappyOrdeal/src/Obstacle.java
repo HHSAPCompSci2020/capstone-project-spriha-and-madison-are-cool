@@ -18,6 +18,7 @@ public class Obstacle extends MovingImage {
 	private int direction;
 	private double heightStart;
 	private int wiggle;
+	public boolean scored = false;
 
 	/**
 	 * Creates a constructor for obstacle

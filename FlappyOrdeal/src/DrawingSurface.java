@@ -35,7 +35,7 @@ public class DrawingSurface extends PApplet {
 		f = new Food(DRAWING_WIDTH, Math.random() * (DRAWING_HEIGHT - 100));
 		foods.add(f);
 	}
-	
+
 	private void newObstacle(Obstacle o) {
 		o = new Obstacle(DRAWING_WIDTH, 0, 75, Math.random() * 215 + 100, wiggle++);
 		obstacles.add(o);
@@ -50,8 +50,20 @@ public class DrawingSurface extends PApplet {
 			newFood(new Food(0, 0));
 		}
 		flappyBird.draw(this);
+
+		for (int i = 0; i < obstacles.size(); i++) {
+			Obstacle obstacle = obstacles.get(i); // this line is supposed to get i
+			obstacle.draw(this);
+			if (start) {
+				obstacle.act();
+			}
+			if (obstacle.x < -80) {
+				obstacles.remove(i);
+				newObstacle(obstacle);
+			}
+		}
 		for (int i = 0; i < foods.size(); i++) {
-			Food food = foods.get(i);  // get the food at index i from foods.
+			Food food = foods.get(i); // get the food at index i from foods.
 			food.draw(this);
 			if (start)
 				food.act();
@@ -62,18 +74,6 @@ public class DrawingSurface extends PApplet {
 				}
 			}
 
-		}
-
-		for (int i = 0; i < obstacles.size(); i++) {
-			Obstacle obstacle = obstacles.get(i);  // this line is supposed to get i
-			obstacle.draw(this);
-			if (start) {
-				obstacle.act();
-			}
-			if (obstacle.x < -80) {
-				obstacles.remove(i);
-				newObstacle(obstacle);
-			}
 		}
 
 		if (isPressed(KeyEvent.VK_SPACE))

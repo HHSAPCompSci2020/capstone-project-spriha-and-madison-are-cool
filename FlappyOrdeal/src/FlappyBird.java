@@ -13,6 +13,7 @@ import processing.core.PImage;
  */
 public class FlappyBird extends MovingImage {
 	public double stamina;
+	public double counter = 0;
 
 	/**
 	 * Constructs a flappy bird with given coordinates and a stamina of 10
@@ -71,8 +72,16 @@ public class FlappyBird extends MovingImage {
 			Obstacle o = obstacles.get(i); // look at each obstacle
 			if (o.intersects(this) || o.bottom().intersects(this)) { // see if we've hit it (?) // or the bottom half
 				stamina = 0; // if yes, stop game
-			} else { // if not (?) add points
 			}
+
+			// if we have have passed, only add score once
+			if (x > (o.x + o.width)) {
+				if (o.scored == false) {
+					counter++;
+					o.scored = true;
+				}
+			}
+
 		}
 
 	}
@@ -91,6 +100,7 @@ public class FlappyBird extends MovingImage {
 		p.textSize(50);
 		if (stamina > 0)
 			p.text((int) (stamina), 0, 50);
+		p.text((int) (counter), 450, 75);
 		p.popStyle();
 	}
 }
