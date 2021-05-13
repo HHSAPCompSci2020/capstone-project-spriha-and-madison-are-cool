@@ -21,6 +21,11 @@ public class Obstacle extends MovingImage {
 	private double heightStart;
 	private int wiggle;
 	public boolean scored = false;
+	private Rectangle2D.Double topRect ;
+	private Rectangle2D.Double bottomRect ;
+	private float shiftIncrement ;
+	private int minShiftExtent ;
+	private int maxShiftExtent ;
 
 	/**
 	 * Creates a constructor for obstacle
@@ -32,9 +37,17 @@ public class Obstacle extends MovingImage {
 	 * @param h   The height of the obstacle
 	 * @param wiggle How much the obstacle "wiggles" (moves up and down)
 	 */
-	public Obstacle(double x, double y, double h, int wiggle) {
+	public Obstacle(double x, double y, double h) {
 		super(x, y, 80, h);
-
+		double topHeight = Math.random() * (0.69 * height) + 0.01 * height;
+		double space = 100 ;
+		double bottomY = y + topHeight + space;
+		double bottomHeight = FlappyBirdGame.DRAWING_HEIGHT - (y + topHeight + space);
+		topRect = new Rectangle2D.Double(x, y, width, topHeight);
+		bottomRect = new Rectangle2D.Double(x, bottomY, width, bottomHeight);
+		shiftIncrement = (float) -1 ;
+		minShiftExtent = 50 ;
+		maxShiftExtent = (int)height - 50 ;
 		xVelocity = 1;
 		direction = 1;
 		heightStart = height;
@@ -46,21 +59,39 @@ public class Obstacle extends MovingImage {
 	/**
 	 * Sets the velocity for movement and creates the wiggle
 	 */
-	public void act() {
-		super.x -= xVelocity;
-
-		if (wiggle > 0) {
-			height += direction;
-
-			if (height > (heightStart + wiggle)) { // obstacle moves up and down by 100 pixels
-				direction = -1;
-			} else if (height < (heightStart - wiggle)) {
-				direction = 1;
-			}
+	public boolean hit(FlappyBird b) {
+		if(topRect.intersects(b) || bottomRect.intersects(b)) {
+			return true ;
 		}
-
+		return false ;
 	}
 
+
+	public boolean move(int speed) {
+		topRect.x -= speed ;
+		bottomRect.x -= speed ;
+		if(topRect.x < -80) {
+			return false ;
+		}
+		return true ;
+	}
+	
+	public void shiftOpening() {
+		double topHeight = topRect.height;
+		double bottomY = bottomRect.y;
+		
+		if(shiftIncrement < 0 && topHeight >= minShiftExtent) {
+			topRect.height += shiftIncrement ;
+			bottomRect.y += shiftIncrement ;
+			bottomRect.height -= shiftIncrement ;
+		} else if(shiftIncrement > 0 && bottomY <= maxShiftExtent) {
+				topRect.height += shiftIncrement ;
+				bottomRect.y += shiftIncrement ;
+				bottomRect.height -= shiftIncrement ;
+		} else {
+			shiftIncrement = -shiftIncrement ;
+		}
+	}
 	/**
 	 * Returns the dimensions of the bottom rectangle
 	 * 
