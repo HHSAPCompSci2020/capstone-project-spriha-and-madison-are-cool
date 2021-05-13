@@ -28,6 +28,7 @@ public class Obstacle extends MovingImage {
 	 * @param y   The y coordinate for the obstacle
 	 * @param w   The width of the obstacle
 	 * @param h   The height of the obstacle
+	 * @param wiggle How much the obstacle "wiggles" (moves up and down)
 	 */
 	public Obstacle(double x, double y, double w, double h, int wiggle) {
 		super(x, y, w, h);
@@ -40,6 +41,9 @@ public class Obstacle extends MovingImage {
 //		pipes.add(e);
 	}
 
+	/**
+	 * Sets the velocity for movement and creates the wiggle
+	 */
 	public void act() {
 		super.x -= xVelocity;
 
@@ -55,6 +59,11 @@ public class Obstacle extends MovingImage {
 
 	}
 
+	/**
+	 * Returns the dimensions of the bottom rectangle
+	 * 
+	 * @return bottom rectangle 
+	 */
 	public Double bottom() {
 		return new Rectangle2D.Double(x, y + height + 115, width, 504 - height - 115);
 	}
