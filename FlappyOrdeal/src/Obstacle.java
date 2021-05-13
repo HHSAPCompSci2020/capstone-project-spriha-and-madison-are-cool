@@ -9,6 +9,8 @@ import processing.core.PImage;
  * Obstacle is a class that represents all the possible obstacles (pipes, moving
  * pipes, diving birds)
  * 
+ * Note: obstacles only start moving after the first 4 obstacles are passed
+ * 
  * @author Madison Tippett
  */
 public class Obstacle extends MovingImage {
