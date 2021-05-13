@@ -12,7 +12,6 @@ public class GameLevel {
 		this.level = level ;
 		this.speed = 3 ;
 		this.foodFrequency = 2 ;			
-		//this.maxObstacleCount = 3 ;			
 		nextLevel();
 	}
 	

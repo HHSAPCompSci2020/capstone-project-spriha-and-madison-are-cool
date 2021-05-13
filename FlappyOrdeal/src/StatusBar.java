@@ -19,7 +19,11 @@ public class StatusBar {
 	private int staminaWidth ;
 	private int staminaHeight ;
 
-	
+	/**
+	 * Constructs a StatusBar with given width and height
+	 * @param width width of the bar
+	 * @param height height of the bar
+	 */
 	public StatusBar(int width, int height) {
 		this.width = width ;
 		this.height = height ;
@@ -30,15 +34,24 @@ public class StatusBar {
 		this.bird = null ;
 		this.level = 1 ;
 	}
-	
+	/**
+	 * Sets the Flappy Bird to the given bird object
+	 * @param bird the new Flappy Bird
+	 */
 	public void setBird(FlappyBird bird) {
 		this.bird = bird ;		
 	}
-	
+	/**
+	 * Returns the height of the bar
+	 * @return the height of the bar
+	 */
 	public int getHeight() {
 		return height ;
 	}
-	
+	/**
+	 * Draws the StatusBar on the given PApplet
+	 * @param app the PApplet on which the Bar is drawn
+	 */
 	public void draw(FlappyBirdGame app) {
 		app.pushStyle();
 		app.fill(233,235,61);
