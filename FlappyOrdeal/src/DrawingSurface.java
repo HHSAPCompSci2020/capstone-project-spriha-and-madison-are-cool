@@ -15,6 +15,7 @@ public class DrawingSurface extends PApplet {
 	private Rectangle screenRect;
 	public static final int DRAWING_WIDTH = 900;
 	public static final int DRAWING_HEIGHT = 504;
+	private int wiggle = 5;
 
 	public DrawingSurface() {
 		flappyBird = new FlappyBird(150, 50);
@@ -23,10 +24,10 @@ public class DrawingSurface extends PApplet {
 		keys = new ArrayList<Integer>();
 		screenRect = new Rectangle(0, 0, DRAWING_WIDTH, DRAWING_HEIGHT);
 
-		obstacles.add(new Obstacle(825, 0, 75, Math.random() * 215 + 100)); // add an obstacle to the world
-		obstacles.add(new Obstacle(1075, 0, 75, Math.random() * 215 + 100)); // add an obstacle to the world
-		obstacles.add(new Obstacle(1325, 0, 75, Math.random() * 215 + 100)); // add an obstacle to the world
-		obstacles.add(new Obstacle(1575, 0, 75, Math.random() * 215 + 100)); // add an obstacle to the world
+		obstacles.add(new Obstacle(825, 0, 75, Math.random() * 215 + 100, 0)); // add an obstacle to the world
+		obstacles.add(new Obstacle(1075, 0, 75, Math.random() * 215 + 100, 0)); // add an obstacle to the world
+		obstacles.add(new Obstacle(1325, 0, 75, Math.random() * 215 + 100, 0)); // add an obstacle to the world
+		obstacles.add(new Obstacle(1575, 0, 75, Math.random() * 215 + 100, 0)); // add an obstacle to the world
 
 	}
 
@@ -36,7 +37,7 @@ public class DrawingSurface extends PApplet {
 	}
 	
 	private void newObstacle(Obstacle o) {
-		o = new Obstacle(DRAWING_WIDTH, 0, 75, Math.random() * 215 + 100);
+		o = new Obstacle(DRAWING_WIDTH, 0, 75, Math.random() * 215 + 100, wiggle++);
 		obstacles.add(o);
 	}
 
@@ -83,6 +84,10 @@ public class DrawingSurface extends PApplet {
 			flappyBird.dive();
 		if (start)
 			flappyBird.act(foods, obstacles);
+		// if flappyBird has no stamina, start equals false and game stops
+		if (flappyBird.stamina <= 0) {
+			start = false;
+		}
 
 	}
 
