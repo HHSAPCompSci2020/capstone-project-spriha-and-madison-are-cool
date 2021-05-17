@@ -93,6 +93,7 @@ public class GameWorld {
 			generateCounter = GameLevel.GENERATE_AFTER ;
 			generatedCount++ ;
 			obstacles.add(new Obstacle(width, startY, height));
+			obstacles.add(new Obstacle(width + 450, startY, height));
 		} else if(generateCounter % (GameLevel.GENERATE_AFTER / gameLevel.getFoodFrequency()) == 0) {
 			//Generate Food
 			foods.add(new Food(width, startY, height));
