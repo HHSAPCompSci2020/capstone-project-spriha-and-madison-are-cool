@@ -11,6 +11,7 @@ public class Obstacle extends MovingImage {
 	private int minShiftExtent;
 	private int maxShiftExtent;
 	public boolean scored;
+	private boolean move;
 
 	public static int elevationInterval;
 
@@ -25,6 +26,8 @@ public class Obstacle extends MovingImage {
 		shiftIncrement = (float) -1;
 		minShiftExtent = 50;
 		maxShiftExtent = height - 50;
+		Random r = new Random();
+		move = r.nextBoolean();
 	}
 
 	public boolean hit(FlappyBird b) {
@@ -66,7 +69,6 @@ public class Obstacle extends MovingImage {
 
 	public void draw(FlappyBirdGame app) { // collision only works for first obstacle
 		app.pushStyle();
-
 		app.fill(255);
 		app.rect((float) topRect.x, (float) topRect.y, (float) topRect.width, (float) topRect.height);
 		app.rect((float) bottomRect.x, (float) bottomRect.y, (float) bottomRect.width, (float) bottomRect.height);
@@ -74,6 +76,7 @@ public class Obstacle extends MovingImage {
 		// shiftOpening(1.5, (int) (Math.random() * (0.4*FlappyBirdGame.DRAWING_HEIGHT)
 		// + 0.1*FlappyBirdGame.DRAWING_HEIGHT), min + 300/*(int)(Math.random() *
 		// (0.4*FlappyBirdGame.DRAWING_HEIGHT) + 0.5)*/);
+		if(move)
 		shiftOpening();
 		app.popStyle();
 	}
