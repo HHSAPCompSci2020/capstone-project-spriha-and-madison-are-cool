@@ -108,5 +108,9 @@ public class FlappyBird extends MovingImage{
 	public int getScore() {
 		return score;
 	}
+	
+	public void setScore(int score) {
+		this.score = score;
+	}
 
 }
