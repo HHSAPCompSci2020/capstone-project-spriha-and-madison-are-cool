@@ -24,6 +24,8 @@ public class GameWorld {
 	private boolean levelUp ;
 	private boolean gameOver ;
 
+	
+
 	public GameWorld(int y, int width, int height) {
 		gameLevel = new GameLevel(1);
 		
@@ -86,6 +88,8 @@ public class GameWorld {
 			} else if(!o.move(gameLevel.getSpeed())) {
 				removedObstacles.add(o);
 			}
+			
+			bird.incrementScore(o, 1);
 		}
 
 		if(generateCounter <= 0) {
@@ -104,7 +108,6 @@ public class GameWorld {
 		bird.draw(app, flapOn, diveOn, startY, height);
 		
 		app.popStyle();
-		
 		this.updateFoods();
 	}
 

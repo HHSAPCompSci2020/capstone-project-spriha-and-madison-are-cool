@@ -12,6 +12,7 @@ public class StatusBar {
 	private int level ;
 	
 	private FlappyBird bird ;
+	private Obstacle obstacle;
 	private JLabel staminaLabel;
 	
 	private int staminaX ;
@@ -32,6 +33,7 @@ public class StatusBar {
 		this.staminaWidth = width / 4 ;
 		this.staminaHeight = 40 ;
 		this.bird = null ;
+		this.obstacle = null;
 		this.level = 1 ;
 	}
 	/**
@@ -64,7 +66,7 @@ public class StatusBar {
 		app.text("Stamina", (float)(width - width * 0.4) , height - 15);
 
 		app.textSize(40);
-		app.text("Level : " + level , 5 , height - 15);
+		app.text("Score : " + bird.getScore() , 5 , height - 15);
 
 		int stamina = bird.getStamina() ;
 

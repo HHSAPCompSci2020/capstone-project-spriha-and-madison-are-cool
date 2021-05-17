@@ -11,7 +11,7 @@ public class GameLevel {
 	public GameLevel(int level) {
 		this.level = level ;
 		this.speed = 3 ;
-		this.foodFrequency = 2 ;			
+		this.foodFrequency = 4 ;			
 		nextLevel();
 	}
 	

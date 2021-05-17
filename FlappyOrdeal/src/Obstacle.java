@@ -10,6 +10,7 @@ public class Obstacle extends MovingImage {
 	private float shiftIncrement;
 	private int minShiftExtent;
 	private int maxShiftExtent;
+	public boolean scored;
 
 	public static int elevationInterval;
 
@@ -58,6 +59,10 @@ public class Obstacle extends MovingImage {
 			shiftIncrement = -shiftIncrement;
 		}
 	}
+	
+	public Rectangle2D.Double getEmptySpaceRectangle() {
+		return new Rectangle2D.Double(topRect.x, topRect.y + topRect.height, OBSTACLE_WIDTH, OBSTACLE_GAP);
+	}
 
 	public void draw(FlappyBirdGame app) { // collision only works for first obstacle
 		app.pushStyle();
@@ -65,7 +70,6 @@ public class Obstacle extends MovingImage {
 		app.fill(255);
 		app.rect((float) topRect.x, (float) topRect.y, (float) topRect.width, (float) topRect.height);
 		app.rect((float) bottomRect.x, (float) bottomRect.y, (float) bottomRect.width, (float) bottomRect.height);
-		
 		int min = (int) (Math.random() * (0.4 * FlappyBirdGame.DRAWING_HEIGHT) + 0.1 * FlappyBirdGame.DRAWING_HEIGHT);
 		// shiftOpening(1.5, (int) (Math.random() * (0.4*FlappyBirdGame.DRAWING_HEIGHT)
 		// + 0.1*FlappyBirdGame.DRAWING_HEIGHT), min + 300/*(int)(Math.random() *

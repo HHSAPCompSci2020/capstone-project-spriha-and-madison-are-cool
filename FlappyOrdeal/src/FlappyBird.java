@@ -1,3 +1,5 @@
+import java.awt.geom.Rectangle2D;
+
 /**
  * FlappyBird is moving image that represents the flappy bird, which can move up
  * or down, lose stamina over a period of time, and gain stamina by eating food
@@ -7,6 +9,7 @@
  */
 public class FlappyBird extends MovingImage{
 	private double stamina ;
+	private int score;
 	/**
 	 * Constructs a flappy bird with given coordinates and a stamina of 10
 	 * 
@@ -89,6 +92,21 @@ public class FlappyBird extends MovingImage{
 				stamina -= 1 ;
 			}
 		}
+	}
+	
+	public boolean incrementScore(Obstacle o, int amt) {
+		Rectangle2D.Double empty = o.getEmptySpaceRectangle();
+		if (this.intersects(empty)) {
+			if(!o.scored)
+			score += amt;
+			o.scored = true;
+			return true;
+		}
+		return false;
+	}
+	
+	public int getScore() {
+		return score;
 	}
 
 }
