@@ -14,6 +14,7 @@ public class FlappyBirdGame extends PApplet {
 	private GameWorld gameWorld ;
 	private PImage birdImage;
 	private PImage obstacleImage;
+	private PImage foodImage;
 
 	public void settings() {
 		size(DRAWING_WIDTH, DRAWING_HEIGHT);
@@ -27,6 +28,7 @@ public class FlappyBirdGame extends PApplet {
 	public void setup() {
 		birdImage = loadImage("unnamed.png");
 		obstacleImage = loadImage("obstacle.png");
+		foodImage = loadImage("Food.png");
 	}
 	
 	public PImage getBirdImage() {
@@ -48,6 +50,11 @@ public class FlappyBirdGame extends PApplet {
 
 	public void keyReleased() {
 		gameWorld.keyReleased(keyCode);
+	}
+
+	public PImage getFoodImage() {
+		// TODO Auto-generated method stub
+		return foodImage;
 	}
 
 }

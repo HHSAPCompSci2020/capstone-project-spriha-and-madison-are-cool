@@ -18,7 +18,7 @@ public class Food extends MovingImage {
  */
 	public Food(int x, int startY, int height) {
 		super(x,Math.random() * (height - 100) + startY + foodHeight , foodWidth,foodHeight);
-		quantity = (int)(Math.random() * 20) ;
+		quantity = (int)(Math.random() * 20) + 1;
 	}
 	/**
 	 * Moves the food object and returns true if the Food object is in the window
@@ -40,8 +40,8 @@ public class Food extends MovingImage {
 		app.pushStyle();
 
 		app.fill(255,0,0);
-		app.ellipse((float)x,(float)y,(float)width,(float)height);
-		
+		//app.ellipse((float)x,(float)y,(float)width,(float)height);
+		app.image(app.getFoodImage(), (float)x, (float)y, (float) width, (float) height);
 		app.fill(0);
 		app.stroke(0);
 		app.textSize(15);
