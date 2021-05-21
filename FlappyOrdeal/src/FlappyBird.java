@@ -39,6 +39,13 @@ public class FlappyBird extends MovingImage{
 		}
 		return false ;
 	}
+	
+	public boolean poweredUp(PowerUp p) {
+		if(this.intersects(p)) {
+			return true ;
+		}
+		return false ;
+	}
 /**
  * Updates the stamina of the bird by the given amount
  * @param incr the amount by which the stamina is increased

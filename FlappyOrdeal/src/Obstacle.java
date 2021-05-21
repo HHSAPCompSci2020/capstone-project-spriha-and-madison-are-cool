@@ -61,7 +61,7 @@ public class Obstacle extends MovingImage {
 		} else {
 			shiftIncrement = -shiftIncrement;
 		}
-	}
+}
 	
 	public Rectangle2D.Double getEmptySpaceRectangle() {
 		return new Rectangle2D.Double(topRect.x, topRect.y + topRect.height, OBSTACLE_WIDTH, OBSTACLE_GAP);
