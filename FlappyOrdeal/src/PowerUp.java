@@ -23,24 +23,21 @@ public class PowerUp extends MovingImage {
 		return true;
 	}
 
-	public boolean purp() {
-		return true;
-	}
-
-	public boolean blue() {
-		return true;
-	}
-
-	public boolean orange() {
-		return true;
-	}
-
-	public boolean red() {
-		return true;
+	public void typeOfPowerUp() {
+		int x = (int) Math.random() * 40;
+		if(x <= 10) {
+			
+		} else if (x > 10 && x <= 20) {
+			
+		} else if (x > 20 && x <= 30) {
+			
+		} else if (x > 30 && x <= 40) {
+			
+		}
 	}
 
 	public void draw(FlappyBirdGame app) {
-	//	app.pushStyle();
+		app.pushStyle();
 
 //		if (purp() == true) {
 //			app.fill(238, 130, 238);
@@ -59,6 +56,6 @@ public class PowerUp extends MovingImage {
 		app.fill(238, 130, 238);
 		app.ellipse((float) x, (float) y, (float) width, (float) height);
 
-	//	app.popStyle();
+		app.popStyle();
 	}
 }

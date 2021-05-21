@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Obstacle extends MovingImage {
 	private static int OBSTACLE_WIDTH = 80;
-	private static int OBSTACLE_GAP = 100;
+	private static int OBSTACLE_GAP = 115;
 
 	private Rectangle2D.Double topRect;
 	private Rectangle2D.Double bottomRect;
