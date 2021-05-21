@@ -22,7 +22,7 @@ public class FlappyBird extends MovingImage{
 	 */
 	
 	public FlappyBird(int x, int y){
-		super(x, y, 50 , 50);
+		super(x, y, 80 , 50);
 		stamina = 1000 ;
 	}
 	/**
@@ -73,7 +73,7 @@ public class FlappyBird extends MovingImage{
  * @param minHeight the minimum height the bird can dive down to
  * @param maxHeight the maximum height the bird can flap up to
  */
-	public void draw(FlappyBirdGame app, boolean flapOn, boolean diveOn, int minHeight, int maxHeight, FlappyBirdGame img) {
+	public void draw(FlappyBirdGame app, boolean flapOn, boolean diveOn, int minHeight, int maxHeight) {
 		stamina -= 0.05;
 		app.pushStyle();
 		app.fill(0,255,255);
