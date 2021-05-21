@@ -52,6 +52,9 @@ public class GameWorld {
 
 		obstacles = new ArrayList<Obstacle>();
 		removedObstacles = new ArrayList<Obstacle>();
+		
+		powerUps = new ArrayList<PowerUp>();
+		removedPowerUps = new ArrayList<PowerUp>();
 }
 
 	public FlappyBird getBird() {
@@ -99,17 +102,17 @@ public class GameWorld {
 			bird.incrementScore(o, 1);
 		}
 		
-//		for(PowerUp p: powerUps) {
-//			p.draw(app);
-//			if(bird.poweredUp(p)) {
-//				removedPowerUps.add(p);
-//			} else if(!p.move(gameLevel.getSpeed())) {
-//				removedPowerUps.add(p);
-//			}
-//		}
-//		
+		for(PowerUp p: powerUps) {
+			p.draw(app);
+			if(bird.poweredUp(p)) {
+				removedPowerUps.add(p);
+			} else if(!p.move(gameLevel.getSpeed())) {
+				removedPowerUps.add(p);
+			}
+		}
+		
 
-		if(generateCounter <= 0) {
+		if(generateCounter <= 0) { // need to add powerups after finishing code
 			//Generate Obstacle
 			generateCounter = GameLevel.GENERATE_AFTER ;
 			generatedCount++ ;

@@ -25,14 +25,14 @@ public class PowerUp extends MovingImage {
 
 	public void typeOfPowerUp() {
 		int x = (int) Math.random() * 40;
-		if(x <= 10) {
-			
+		if (x <= 10) {
+
 		} else if (x > 10 && x <= 20) {
-			
+
 		} else if (x > 20 && x <= 30) {
-			
+
 		} else if (x > 30 && x <= 40) {
-			
+
 		}
 	}
 
@@ -52,7 +52,7 @@ public class PowerUp extends MovingImage {
 //			app.fill(255, 0, 0);
 //			app.ellipse((float) x, (float) y, (float) width, (float) height);
 //		}
-		
+
 		app.fill(238, 130, 238);
 		app.ellipse((float) x, (float) y, (float) width, (float) height);
 
