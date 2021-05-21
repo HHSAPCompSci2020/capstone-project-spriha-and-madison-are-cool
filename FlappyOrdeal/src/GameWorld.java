@@ -18,11 +18,16 @@ public class GameWorld {
 
 	private ArrayList<Obstacle> obstacles ;
 	private ArrayList<Obstacle> removedObstacles ;
+	
+	private ArrayList<PowerUp> powerUps;
+	private ArrayList<PowerUp> removedPowerUps;
 
 	private int generateCounter ;
 	private int generatedCount ;
 	private boolean levelUp ;
 	private boolean gameOver ;
+	
+	public int counter = 0;
 
 	
 
@@ -91,6 +96,16 @@ public class GameWorld {
 			
 			bird.incrementScore(o, 1);
 		}
+		
+//		for(PowerUp p: powerUps) {
+//			p.draw(app);
+//			if(bird.poweredUp(p)) {
+//				removedPowerUps.add(p);
+//			} else if(!p.move(gameLevel.getSpeed())) {
+//				removedPowerUps.add(p);
+//			}
+//		}
+//		
 
 		if(generateCounter <= 0) {
 			//Generate Obstacle
