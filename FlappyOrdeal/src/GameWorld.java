@@ -121,7 +121,7 @@ public class GameWorld {
 		}
 
 		generateCounter-- ;
-		bird.draw(app, flapOn, diveOn, startY, height, app);
+		bird.draw(app, flapOn, diveOn, startY, height);
 		
 		app.popStyle();
 		this.updateFoods();

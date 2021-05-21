@@ -13,6 +13,7 @@ public class FlappyBirdGame extends PApplet {
 	private StatusBar statusBar ;
 	private GameWorld gameWorld ;
 	private PImage birdImage;
+	private PImage obstacleImage;
 
 	public void settings() {
 		size(DRAWING_WIDTH, DRAWING_HEIGHT);
@@ -25,10 +26,15 @@ public class FlappyBirdGame extends PApplet {
 	}
 	public void setup() {
 		birdImage = loadImage("unnamed.png");
+		obstacleImage = loadImage("obstacle.png");
 	}
 	
 	public PImage getBirdImage() {
 		return this.birdImage;
+	}
+	
+	public PImage getObstacleImage() {
+		return this.obstacleImage;
 	}
 	public void draw() {
 		this.background(255);

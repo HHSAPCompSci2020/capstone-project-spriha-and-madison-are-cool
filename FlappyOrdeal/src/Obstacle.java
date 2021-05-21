@@ -23,7 +23,7 @@ public class Obstacle extends MovingImage {
 		double bottomHeight = FlappyBirdGame.DRAWING_HEIGHT - (y + topHeight + space);
 		topRect = new Rectangle2D.Double(x, y, width, topHeight);
 		bottomRect = new Rectangle2D.Double(x, bottomY, width, bottomHeight);
-		shiftIncrement = (float) -1;
+		shiftIncrement = (float) -0.7;
 		minShiftExtent = 50;
 		maxShiftExtent = height - 50;
 		Random r = new Random();
@@ -70,8 +70,11 @@ public class Obstacle extends MovingImage {
 	public void draw(FlappyBirdGame app) { // collision only works for first obstacle
 		app.pushStyle();
 		app.fill(255);
-		app.rect((float) topRect.x, (float) topRect.y, (float) topRect.width, (float) topRect.height);
-		app.rect((float) bottomRect.x, (float) bottomRect.y, (float) bottomRect.width, (float) bottomRect.height);
+		/*app.rect((float) topRect.x, (float) topRect.y, (float) topRect.width, (float) topRect.height);
+		app.rect((float) bottomRect.x, (float) bottomRect.y, (float) bottomRect.width, (float) bottomRect.height);*/
+		app.image(app.getObstacleImage(), (float)topRect.x, (float)topRect.y, (float)topRect.width, (float)topRect.height);
+		app.image(app.getObstacleImage(), (float)bottomRect.x, (float)bottomRect.y, (float)bottomRect.width, (float)bottomRect.height);
+
 		int min = (int) (Math.random() * (0.4 * FlappyBirdGame.DRAWING_HEIGHT) + 0.1 * FlappyBirdGame.DRAWING_HEIGHT);
 		// shiftOpening(1.5, (int) (Math.random() * (0.4*FlappyBirdGame.DRAWING_HEIGHT)
 		// + 0.1*FlappyBirdGame.DRAWING_HEIGHT), min + 300/*(int)(Math.random() *
