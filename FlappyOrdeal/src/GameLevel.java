@@ -1,7 +1,7 @@
 
 public class GameLevel {
 	public static int MAX_LEVEL = 1 ;
-	public static int GENERATE_AFTER = 300 ;
+	public static int GENERATE_AFTER = 200 ;
 	
 	private int level ;
 	private int speed ;
@@ -10,8 +10,8 @@ public class GameLevel {
 	
 	public GameLevel(int level) {
 		this.level = level ;
-		this.speed = 3 ;
-		this.foodFrequency = 4 ;			
+		this.speed = 5 ;
+		this.foodFrequency = 2 ;			
 		nextLevel();
 	}
 	

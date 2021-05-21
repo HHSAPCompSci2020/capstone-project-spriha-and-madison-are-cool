@@ -2,6 +2,9 @@ import java.awt.Event;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import processing.core.PApplet;
+import processing.core.PImage;
+
 public class GameWorld {
 	private GameLevel gameLevel ;
 	
@@ -32,8 +35,7 @@ public class GameWorld {
 	
 
 	public GameWorld(int y, int width, int height) {
-		gameLevel = new GameLevel(1);
-		
+		gameLevel = new GameLevel(1);		
 		this.startY = y ;
 		this.width = width ;
 		this.height = height ;
@@ -112,15 +114,14 @@ public class GameWorld {
 			generateCounter = GameLevel.GENERATE_AFTER ;
 			generatedCount++ ;
 			obstacles.add(new Obstacle(width, startY, height));
-			obstacles.add(new Obstacle(width + 450, startY, height));
+			//obstacles.add(new Obstacle(width + 450, startY, height));
 		} else if(generateCounter % (GameLevel.GENERATE_AFTER / gameLevel.getFoodFrequency()) == 0) {
 			//Generate Food
 			foods.add(new Food(width, startY, height));
 		}
 
 		generateCounter-- ;
-		
-		bird.draw(app, flapOn, diveOn, startY, height);
+		bird.draw(app, flapOn, diveOn, startY, height, app);
 		
 		app.popStyle();
 		this.updateFoods();
@@ -128,7 +129,6 @@ public class GameWorld {
 
 	private boolean checkForLevel(FlappyBirdGame app) {
 		if(gameOver /*|| this.generatedCount == gameLevel.getMaxObstacleCount()*/) {
-			
 			if(gameOver /*|| gameLevel.getLevel() == GameLevel.MAX_LEVEL*/) {
 				app.pushStyle();
 
@@ -193,6 +193,7 @@ public class GameWorld {
 			flapOn = false ;
 		} else if(keyCode == KeyEvent.VK_SPACE) {
 			if(gameOver) {
+				bird.setScore(0);
 				gameOver = false ;
 				levelUp = false ;
 				bird.updateStamina(1000);

@@ -1,5 +1,8 @@
 import java.awt.geom.Rectangle2D;
 
+import processing.core.PApplet;
+import processing.core.PImage;
+
 /**
  * FlappyBird is moving image that represents the flappy bird, which can move up
  * or down, lose stamina over a period of time, and gain stamina by eating food
@@ -10,12 +13,14 @@ import java.awt.geom.Rectangle2D;
 public class FlappyBird extends MovingImage{
 	private double stamina ;
 	private int score;
+	private PImage image;
 	/**
 	 * Constructs a flappy bird with given coordinates and a stamina of 10
 	 * 
 	 * @param x The x - coordinate of the top left corner of the bird
 	 * @param y The y - coordinate of the top left corner of the bird
 	 */
+	
 	public FlappyBird(int x, int y){
 		super(x, y, 50 , 50);
 		stamina = 1000 ;
@@ -27,6 +32,7 @@ public class FlappyBird extends MovingImage{
 	public int getStamina() {
 		return (int)stamina ;
 	}
+	
 	/**
 	 * Returns true and updates the stamina of the bird if it collides with the given Food object
 	 * @param f The Food object the bird is checking collisions with
@@ -67,13 +73,13 @@ public class FlappyBird extends MovingImage{
  * @param minHeight the minimum height the bird can dive down to
  * @param maxHeight the maximum height the bird can flap up to
  */
-	public void draw(FlappyBirdGame app, boolean flapOn, boolean diveOn, int minHeight, int maxHeight) {
+	public void draw(FlappyBirdGame app, boolean flapOn, boolean diveOn, int minHeight, int maxHeight, FlappyBirdGame img) {
 		stamina -= 0.05;
 		app.pushStyle();
 		app.fill(0,255,255);
 		app.stroke(0);
-		app.rect((float)getX(), (float)getY() , (float)getWidth(), (float)getHeight());
-		
+		//app.rect((float)getX(), (float)getY() , (float)getWidth(), (float)getHeight());
+		app.image(app.getBirdImage(), (float)getX(), (float)getY() , (float)getWidth(), (float)getHeight());
 		handleMovement(flapOn, diveOn, minHeight, maxHeight);
 		
 		app.popStyle();
