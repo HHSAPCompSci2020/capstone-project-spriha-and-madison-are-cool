@@ -80,8 +80,8 @@ public class GameWorld {
 		}
 		app.pushStyle();
 		app.rect(0, startY, width, height);
-		app.background(app.getBackgroundImage());
-		//back.draw(app);
+		//app.background(app.getBackgroundImage());
+		back.draw(app);
 		for(Food f: foods) {
 			f.draw(app);
 			if(bird.ate(f)) {
