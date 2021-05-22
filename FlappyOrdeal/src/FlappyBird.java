@@ -39,7 +39,8 @@ public class FlappyBird extends MovingImage{
 	 * @return true if the bird collides with the food, false otherwise
 	 */
 	public boolean ate(Food f) {
-		if(this.intersects(f)) {
+		Rectangle2D.Double intersectRect = new Rectangle2D.Double((float)getX()+15, (float)getY()+10 , (float)getWidth()-35, (float)getHeight()-20);
+		if(intersectRect.intersects(f)) {
 			updateStamina(f.quantity());
 			return true ;
 		}
@@ -78,7 +79,7 @@ public class FlappyBird extends MovingImage{
 		app.pushStyle();
 		app.fill(0,255,255);
 		app.stroke(0);
-		//app.rect((float)getX(), (float)getY() , (float)getWidth(), (float)getHeight());
+		//app.rect((float)getX()+15, (float)getY()+10 , (float)getWidth()-35, (float)getHeight()-20);
 		app.image(app.getBirdImage(), (float)getX(), (float)getY() , (float)getWidth(), (float)getHeight());
 		handleMovement(flapOn, diveOn, minHeight, maxHeight);
 		

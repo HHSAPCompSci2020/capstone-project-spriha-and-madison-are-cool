@@ -2,7 +2,7 @@ import java.awt.geom.Rectangle2D;
 import java.util.Random;
 
 public class Obstacle extends MovingImage {
-	private static int OBSTACLE_WIDTH = 80;
+	private static int OBSTACLE_WIDTH = 100;
 	private static int OBSTACLE_GAP = 115;
 
 	private Rectangle2D.Double topRect;
@@ -23,7 +23,7 @@ public class Obstacle extends MovingImage {
 		double bottomHeight = FlappyBirdGame.DRAWING_HEIGHT - (y + topHeight + space);
 		topRect = new Rectangle2D.Double(x, y, width, topHeight);
 		bottomRect = new Rectangle2D.Double(x, bottomY, width, bottomHeight);
-		shiftIncrement = (float) -0.7;
+		shiftIncrement = (float) -1;
 		minShiftExtent = 50;
 		maxShiftExtent = height - 50;
 		Random r = new Random();
@@ -31,7 +31,8 @@ public class Obstacle extends MovingImage {
 	}
 
 	public boolean hit(FlappyBird b) {
-		if (topRect.intersects(b) || bottomRect.intersects(b)) {
+		Rectangle2D.Double intersectRect = new Rectangle2D.Double((float)b.getX()+15, (float)b.getY()+10 , (float)b.getWidth()-35, (float)b.getHeight()-20);
+		if (topRect.intersects(intersectRect) || bottomRect.intersects(intersectRect)) {
 			return true;
 		}
 		return false;
@@ -72,8 +73,8 @@ public class Obstacle extends MovingImage {
 		app.fill(255);
 		/*app.rect((float) topRect.x, (float) topRect.y, (float) topRect.width, (float) topRect.height);
 		app.rect((float) bottomRect.x, (float) bottomRect.y, (float) bottomRect.width, (float) bottomRect.height);*/
-		app.image(app.getObstacleImage(), (float)topRect.x, (float)topRect.y, (float)topRect.width, (float)topRect.height);
-		app.image(app.getObstacleImage(), (float)bottomRect.x, (float)bottomRect.y, (float)bottomRect.width, (float)bottomRect.height);
+		app.image(app.getObstacleTopImage(), (float)topRect.x, (float)topRect.y, (float)topRect.width, (float)topRect.height);
+		app.image(app.getObstacleBottomImage(), (float)bottomRect.x, (float)bottomRect.y, (float)bottomRect.width, (float)bottomRect.height);
 
 		int min = (int) (Math.random() * (0.4 * FlappyBirdGame.DRAWING_HEIGHT) + 0.1 * FlappyBirdGame.DRAWING_HEIGHT);
 		// shiftOpening(1.5, (int) (Math.random() * (0.4*FlappyBirdGame.DRAWING_HEIGHT)

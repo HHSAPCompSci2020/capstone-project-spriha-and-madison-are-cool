@@ -43,11 +43,11 @@ public class Food extends MovingImage {
 		//app.ellipse((float)x,(float)y,(float)width,(float)height);
 		app.image(app.getFoodImage(), (float)x, (float)y, (float) width, (float) height);
 		app.fill(0);
-		app.stroke(0);
-		app.textSize(15);
-		app.strokeWeight(10);
+		app.stroke(0, 255, 0);
+		app.textSize(30);
+		app.strokeWeight(50);
 		app.textAlign(FlappyBirdGame.CENTER);
-		app.text(Integer.toString(quantity), (float)(x) , (float)(y+5));
+		app.text(Integer.toString(quantity), (float)(x) , (float)(y-20));
 		
 		app.popStyle();
 	}

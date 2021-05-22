@@ -2,6 +2,8 @@ import java.awt.Event;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -21,7 +23,7 @@ public class GameWorld {
 
 	private ArrayList<Obstacle> obstacles ;
 	private ArrayList<Obstacle> removedObstacles ;
-	
+	private background back;
 	private ArrayList<PowerUp> powerUps;
 	private ArrayList<PowerUp> removedPowerUps;
 
@@ -35,6 +37,7 @@ public class GameWorld {
 	
 
 	public GameWorld(int y, int width, int height) {
+		back = new background();
 		gameLevel = new GameLevel(1);		
 		this.startY = y ;
 		this.width = width ;
@@ -76,11 +79,9 @@ public class GameWorld {
 			gameOver = true;
 		}
 		app.pushStyle();
-
-		app.fill(0);
-		app.stroke(0);
 		app.rect(0, startY, width, height);
-		
+		//app.background(app.getBackgroundImage());
+		back.draw(app);
 		for(Food f: foods) {
 			f.draw(app);
 			if(bird.ate(f)) {
@@ -132,49 +133,38 @@ public class GameWorld {
 
 	private boolean checkForLevel(FlappyBirdGame app) {
 		if(gameOver /*|| this.generatedCount == gameLevel.getMaxObstacleCount()*/) {
-			if(gameOver /*|| gameLevel.getLevel() == GameLevel.MAX_LEVEL*/) {
 				app.pushStyle();
 
-				app.fill(0);
-				app.stroke(0);
-				app.rect(0, startY, width, height);
-
-				app.fill(255,0,0);
-				app.stroke(255,0,0);
-				app.textSize(30);
-				app.strokeWeight(10);
-				app.textAlign(FlappyBirdGame.CENTER);
-				app.text("Game Over", (float)(width / 2.0) , (float)(height / 2.0));
-				app.textSize(20);
-				app.text("Press Space Bar To Play A New Game...", (float)(width / 2.0) , (float)(height / 2.0 + 30));
-
-				app.popStyle();
-				
+				//app.fill(0);
+				//app.stroke(0);
+				//app.rect(0, startY, width, height);
 				levelUp = true ;
 				gameOver = true ;
+				int answer = JOptionPane.showConfirmDialog(null, "Play Again?", "GAME OVER", JOptionPane.YES_NO_OPTION);
+				if (answer == JOptionPane.YES_OPTION) {
+					if(gameOver) {
+						bird.setScore(0);
+						gameOver = false ;
+						levelUp = false ;
+						bird.updateStamina(1000);
+						gameLevel.init();
+						this.removedFoods.clear();
+						this.removedObstacles.clear();
+						this.foods.clear();
+						this.obstacles.clear();
+					} else if(levelUp) {
+						levelUp = false ;
+						gameLevel.nextLevel();
+					}
+				}
+				
+				else if (answer == JOptionPane.NO_OPTION || answer == JOptionPane.CLOSED_OPTION) {
+					System.exit(0);
+				}
+				
+				
 				return true ;
 			}
-			
-			app.pushStyle();
-
-			app.fill(0);
-			app.stroke(0);
-			app.rect(0, startY, width, height);
-
-			app.fill(255,0,0);
-			app.stroke(255,0,0);
-			app.textSize(30);
-			app.strokeWeight(10);
-			app.textAlign(FlappyBirdGame.CENTER);
-			app.text("Level Completed", (float)(width / 2.0) , (float)(height / 2.0));
-			app.textSize(20);
-			app.text("Press Space Bar To Continue...", (float)(width / 2.0) , (float)(height / 2.0 + 30));
-
-			app.popStyle();
-			
-			levelUp = true ;
-			return true ;
-		}
 		return false ;
 	}
 

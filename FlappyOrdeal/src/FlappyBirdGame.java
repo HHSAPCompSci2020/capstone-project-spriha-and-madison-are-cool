@@ -7,14 +7,16 @@ import processing.core.PImage;
 
 public class FlappyBirdGame extends PApplet {
 	public static final int DRAWING_WIDTH = 900;
-	public static final int DRAWING_HEIGHT = 500;
+	public static final int DRAWING_HEIGHT = 504;
 	public static final int STATUS_HEIGHT = 50;
 	
 	private StatusBar statusBar ;
 	private GameWorld gameWorld ;
 	private PImage birdImage;
-	private PImage obstacleImage;
+	private PImage obstacleTopImage;
+	private PImage obstacleBottomImage;
 	private PImage foodImage;
+	private PImage backgroundImage;
 
 	public void settings() {
 		size(DRAWING_WIDTH, DRAWING_HEIGHT);
@@ -26,17 +28,27 @@ public class FlappyBirdGame extends PApplet {
 		statusBar.setBird(gameWorld.getBird());
 	}
 	public void setup() {
-		birdImage = loadImage("unnamed.png");
-		obstacleImage = loadImage("obstacle.png");
+		birdImage = loadImage("FlappyBird.png");
+		obstacleTopImage = loadImage("obstacle-top.png");
+		obstacleBottomImage = loadImage("obstacle-bottom.png");
 		foodImage = loadImage("Food.png");
+		backgroundImage = loadImage("background.png");
 	}
 	
 	public PImage getBirdImage() {
 		return this.birdImage;
 	}
 	
-	public PImage getObstacleImage() {
-		return this.obstacleImage;
+	public PImage getObstacleTopImage() {
+		return this.obstacleTopImage;
+	}
+	
+	public PImage getObstacleBottomImage() {
+		return this.obstacleBottomImage;
+	}
+
+	public PImage getBackgroundImage() {
+		return this.backgroundImage;
 	}
 	public void draw() {
 		this.background(255);
