@@ -9,7 +9,6 @@ import processing.core.PImage;
  */
 
 public class MovingImage extends Rectangle2D.Double {
-	private PImage image;
 
 	/**
 	 * Constructor for the MovingImage
@@ -21,7 +20,6 @@ public class MovingImage extends Rectangle2D.Double {
 	 */
 	public MovingImage(double x, double y, double w, double h) {
 		super(x, y, w, h);
-		//image = img;
 	}
 
 	/**

@@ -37,7 +37,7 @@ public class GameWorld {
 	
 
 	public GameWorld(int y, int width, int height) {
-		back = new background();
+		back = new background(0, 0);
 		gameLevel = new GameLevel();		
 		this.startY = y ;
 		this.width = width ;
@@ -45,7 +45,6 @@ public class GameWorld {
 		this.bird = new FlappyBird(width / 2 , height / 2);
 		flapOn = false ;
 		diveOn = false ;
-		
 		foods = new ArrayList<Food>();
 		removedFoods = new ArrayList<Food>();
 		generateCounter = GameLevel.GENERATE_AFTER ;
@@ -81,7 +80,7 @@ public class GameWorld {
 			}
 			app.pushStyle();
 			app.rect(0, startY, width, height);
-			back.draw(app);
+			back.draw(app, gameLevel.getSpeed());
 			for(Food f: foods) {
 				f.draw(app);
 				if(bird.ate(f)) {

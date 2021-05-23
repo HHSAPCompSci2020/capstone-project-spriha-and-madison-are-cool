@@ -23,7 +23,7 @@ public class FlappyBird extends MovingImage{
 	
 	public FlappyBird(int x, int y){
 		super(x, y, 80 , 50);
-		stamina = 1000 ;
+		stamina = 500 ;
 	}
 	/**
 	 * Returns the value of the stamina of the bird
@@ -31,6 +31,10 @@ public class FlappyBird extends MovingImage{
 	 */
 	public int getStamina() {
 		return (int)stamina ;
+	}
+	
+	public int getMaxStamina() {
+		return 500;
 	}
 	
 	/**
@@ -57,10 +61,10 @@ public class FlappyBird extends MovingImage{
  * Updates the stamina of the bird by the given amount
  * @param incr the amount by which the stamina is increased
  */
-	public void updateStamina(int incr) {
+	public void updateStamina(double incr) {
 		stamina += incr ;
-		if(stamina > 1000) {
-			stamina = 1000 ;
+		if(stamina > 500) {
+			stamina = 500 ;
 		}
 		if(stamina < 0) {
 			stamina = 0 ;
@@ -75,7 +79,7 @@ public class FlappyBird extends MovingImage{
  * @param maxHeight the maximum height the bird can flap up to
  */
 	public void draw(FlappyBirdGame app, boolean flapOn, boolean diveOn, int minHeight, int maxHeight) {
-		stamina -= 0.07;
+		updateStamina(-0.07);
 		app.pushStyle();
 		app.fill(0,255,255);
 		app.stroke(0);
