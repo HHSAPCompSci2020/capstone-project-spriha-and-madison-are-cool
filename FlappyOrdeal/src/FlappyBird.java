@@ -75,7 +75,7 @@ public class FlappyBird extends MovingImage{
  * @param maxHeight the maximum height the bird can flap up to
  */
 	public void draw(FlappyBirdGame app, boolean flapOn, boolean diveOn, int minHeight, int maxHeight) {
-		stamina -= 0.05;
+		stamina -= 0.07;
 		app.pushStyle();
 		app.fill(0,255,255);
 		app.stroke(0);

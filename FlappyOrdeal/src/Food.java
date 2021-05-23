@@ -17,8 +17,8 @@ public class Food extends MovingImage {
  * @param height  height of the food object
  */
 	public Food(int x, int startY, int height) {
-		super(x,Math.random() * (height - 100) + startY + foodHeight , foodWidth,foodHeight);
-		quantity = (int)(Math.random() * 20) + 1;
+		super(x, Math.random() * ((height - 100) - startY) + startY + foodHeight , foodWidth,foodHeight);
+		quantity = (int)(Math.random() * 5) + 5;
 	}
 	/**
 	 * Moves the food object and returns true if the Food object is in the window

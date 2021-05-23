@@ -65,7 +65,7 @@ public class MovingImage extends Rectangle2D.Double {
 	 * 
 	 * @param p The PApplet which to draw on
 	 */
-	public void draw(PApplet p) {
-		p.image(image, (int) x, (int) y, (int) width, (int) height);
+	public void draw(FlappyBirdGame app) {
+		//app.image(app.getMovingImage(), (int) x, (int) y, (int) width, (int) height);
 	}
 }
