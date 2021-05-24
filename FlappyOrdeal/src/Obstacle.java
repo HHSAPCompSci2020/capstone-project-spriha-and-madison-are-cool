@@ -63,10 +63,6 @@ public class Obstacle extends Rectangle2D.Double {
 		} else {
 			shiftIncrement = -shiftIncrement;
 		}
-		
-		if(PowerUp.typeOfPowerUp() == 2) {
-			shiftIncrement = 0;
-		}
 	}
 
 	public Rectangle2D.Double getEmptySpaceRectangle() {

@@ -9,6 +9,8 @@ public class PowerUp extends MovingImage {
 
 	private static double powerUpWidth = 50;
 	private static double powerUpHeight = 50;
+	private int powerUpType = (int) (Math.random() * 30);
+	private int timeRemaining = 5;
 
 	private FlappyBird bird;
 	// public static double powerUp
@@ -26,6 +28,11 @@ public class PowerUp extends MovingImage {
 		return true;
 	}
 
+	public int tick() {
+		timeRemaining--;
+		return timeRemaining;
+	}
+//
 //	public void maxStamina() {
 //		// get GameWorld Flappy Bird
 //
@@ -44,12 +51,11 @@ public class PowerUp extends MovingImage {
 //		// set incrementScore amt to 2
 //		GameWorld.setIncrement(2);
 //	}
-	
 
-	public static int typeOfPowerUp() {
-		int x = (int) Math.random() * 30;
+	public int typeOfPowerUp() {
+		int x = powerUpType;
 		if (x <= 10) {
-			// freezes stamina
+			// max stamina
 			return 1;
 		} else if (x > 10 && x <= 20) {
 			// freezes obstacles
@@ -61,29 +67,20 @@ public class PowerUp extends MovingImage {
 
 		return 0;
 	}
-	
-	public void endPowerUp() {
-		new java.util.Timer().schedule(new java.util.TimerTask() {
-			@Override
-			public void run() {
-				// your code here
-			}
-		}, 5000);
-	}
 
 	public void draw(FlappyBirdGame app) {
 		app.pushStyle();
-
 		if (typeOfPowerUp() == 1) {
-		//	maxStamina();
+
+			// maxStamina();
 			app.fill(255, 0, 0);
 			app.ellipse((float) x, (float) y, (float) width, (float) height);
 		} else if (typeOfPowerUp() == 2) {
-			//freezeObstacles();
+			// freezeObstacles();
 			app.fill(0, 255, 0);
 			app.ellipse((float) x, (float) y, (float) width, (float) height);
 		} else if (typeOfPowerUp() == 3) {
-			//doublePoints();
+			// doublePoints();
 			app.fill(0, 0, 255);
 			app.ellipse((float) x, (float) y, (float) width, (float) height);
 		}

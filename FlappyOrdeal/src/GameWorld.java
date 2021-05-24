@@ -13,7 +13,7 @@ public class GameWorld {
 	private int startY;
 	private int width;
 	private int height;
-	
+
 	public int scoreIncrement = 1;
 
 	private FlappyBird bird;
@@ -25,11 +25,13 @@ public class GameWorld {
 
 	private ArrayList<Obstacle> obstacles;
 	private ArrayList<Obstacle> removedObstacles;
-	
+
 	private background back;
-	
+
 	private ArrayList<PowerUp> powerUps;
 	private ArrayList<PowerUp> removedPowerUps;
+	private ArrayList<PowerUp> activePowerUps;
+	private ArrayList<PowerUp> removeActivePowerUps;
 
 	private int generateCounter;
 	private int generatedCount;
@@ -60,6 +62,9 @@ public class GameWorld {
 
 		powerUps = new ArrayList<PowerUp>();
 		removedPowerUps = new ArrayList<PowerUp>();
+		activePowerUps = new ArrayList<PowerUp>();
+		removeActivePowerUps = new ArrayList<PowerUp>();
+
 	}
 
 	public FlappyBird getBird() {
@@ -75,6 +80,12 @@ public class GameWorld {
 	private void updatePowerUps() {
 		for (PowerUp p : removedPowerUps) {
 			powerUps.remove(p);
+		}
+	}
+
+	private void updateActivePowerUps() {
+		for (PowerUp p : removeActivePowerUps) {
+			activePowerUps.remove(p);
 		}
 	}
 
@@ -115,8 +126,17 @@ public class GameWorld {
 				p.draw(app);
 				if (bird.poweredUp(p)) {
 					removedPowerUps.add(p);
+					activePowerUps.add(p);
+					if (p.typeOfPowerUp() == 1) {
+						bird.updateStamina(1000);
+					} else if (p.typeOfPowerUp() == 2) {
+						
+					} else if (p.typeOfPowerUp() == 3) {
+						scoreIncrement = 2;
+					}
 				} else if (!p.move(gameLevel.getSpeed())) {
 					removedPowerUps.add(p);
+
 				}
 			}
 
@@ -125,16 +145,26 @@ public class GameWorld {
 				generateCounter = GameLevel.GENERATE_AFTER;
 				generatedCount++;
 
+				// System.out.println(activePowerUps);
+				for (PowerUp p : activePowerUps) {
+					// p.tick(); // get how much time is left
+					int timeRemaining = p.tick();
+
+					if (timeRemaining == 0) {
+						// System.out.println("removed p");
+						removeActivePowerUps.add(p);
+						if (p.typeOfPowerUp() == 3) {
+							scoreIncrement = 1;
+						}
+					}
+				}
 				obstacles.add(new Obstacle(width, startY, height));
 			} else if (generateCounter % (GameLevel.GENERATE_AFTER / gameLevel.getFoodFrequency()) == 0) {
 				// Generate Food
-
 				foods.add(new Food(width, startY, height));
 			} else if (generateCounter == 30) {
-				 System.out.println("+++++counter: " + generateCounter);
 				powerUps.add(new PowerUp(width, startY, height));
 			}
-			 System.out.println("generateCounter"+ generateCounter);
 
 			generateCounter--;
 
@@ -143,6 +173,8 @@ public class GameWorld {
 			app.popStyle();
 			this.updateFoods();
 			this.updatePowerUps();
+			this.updateActivePowerUps();
+
 		} else {
 			int answer = JOptionPane.showConfirmDialog(null, "Play?", "FLAPPY ORDEAL", JOptionPane.YES_OPTION);
 			if (answer == JOptionPane.YES_OPTION)
@@ -171,6 +203,11 @@ public class GameWorld {
 					this.removedObstacles.clear();
 					this.foods.clear();
 					this.obstacles.clear();
+
+					this.powerUps.clear();
+					this.removedPowerUps.clear();
+					this.activePowerUps.clear();
+					this.removeActivePowerUps.clear();
 				}
 			}
 
