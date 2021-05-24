@@ -84,10 +84,10 @@ public class PowerUp extends MovingImage {
 			app.image(app.getPowerUpImage1(), (float) x, (float) y, (float) width, (float) height);
 		} else if (typeOfPowerUp() == 2) {
 			// freezeObstacles();
-			app.image(app.getPowerUpImage3(), (float) x, (float) y, (float) width, (float) height);
+			app.image(app.getPowerUpImage2(), (float) x, (float) y, (float) width, (float) height);
 		} else if (typeOfPowerUp() == 3) {
 			// doublePoints();
-			app.image(app.getPowerUpImage2(), (float) x, (float) y, (float) width, (float) height);
+			app.image(app.getPowerUpImage3(), (float) x, (float) y, (float) width, (float) height);
 		}
 
 		app.popStyle();

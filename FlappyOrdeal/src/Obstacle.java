@@ -8,7 +8,7 @@ import java.util.Random;
 public class Obstacle extends Rectangle2D.Double {
 	private static int OBSTACLE_WIDTH = 100;
 	private static int OBSTACLE_GAP = 115;
-
+	public static boolean freeze;
 	private Rectangle2D.Double topRect;
 	private Rectangle2D.Double bottomRect;
 	private float shiftIncrement;
@@ -107,6 +107,9 @@ public class Obstacle extends Rectangle2D.Double {
 				(float) bottomRect.height);
 
 		int min = (int) (Math.random() * (0.4 * FlappyBirdGame.DRAWING_HEIGHT) + 0.1 * FlappyBirdGame.DRAWING_HEIGHT);
+		if(freeze) {
+			move = false;
+		}
 		if (move)
 			shiftOpening();
 		app.popStyle();
