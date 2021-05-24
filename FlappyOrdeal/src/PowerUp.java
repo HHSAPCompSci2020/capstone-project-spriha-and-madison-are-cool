@@ -71,19 +71,14 @@ public class PowerUp extends MovingImage {
 	public void draw(FlappyBirdGame app) {
 		app.pushStyle();
 		if (typeOfPowerUp() == 1) {
-
 			// maxStamina();
-			
-			app.image(app.getPowerUpImage1(), (float)x, (float)y, (float) width, (float) height);
-//			app.fill(255, 0, 0);
-//			app.ellipse((float) x, (float) y, (float) width, (float) height);
+			app.image(app.getPowerUpImage1(), (float) x, (float) y, (float) width, (float) height);
 		} else if (typeOfPowerUp() == 2) {
 			// freezeObstacles();
-			app.fill(0,255,0);
-			app.ellipse((float) x, (float) y, (float) width, (float) height);
+			app.image(app.getPowerUpImage3(), (float) x, (float) y, (float) width, (float) height);
 		} else if (typeOfPowerUp() == 3) {
 			// doublePoints();
-			app.image(app.getPowerUpImage2(), (float)x, (float)y, (float) width, (float) height);
+			app.image(app.getPowerUpImage2(), (float) x, (float) y, (float) width, (float) height);
 		}
 
 		app.popStyle();

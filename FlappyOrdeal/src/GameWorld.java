@@ -38,7 +38,7 @@ public class GameWorld {
 	private boolean levelUp;
 	private boolean gameOver;
 	private boolean start;
-	
+
 	public GameWorld(int y, int width, int height) {
 		back = new background(0, 0);
 		gameLevel = new GameLevel();
@@ -156,7 +156,7 @@ public class GameWorld {
 						if (p.typeOfPowerUp() == 3) {
 							scoreIncrement = 1;
 						} else if (p.typeOfPowerUp() == 2) {
-						//	o.setShiftIncr(-1.5);
+							// o.setShiftIncr(-1.5);
 						}
 					}
 				}

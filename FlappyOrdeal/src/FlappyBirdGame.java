@@ -19,6 +19,8 @@ public class FlappyBirdGame extends PApplet {
 	private PImage backgroundImage;
 	private PImage powerUpImage1;
 	private PImage powerUpImage2;
+	private PImage powerUpImage3;
+
 
 
 	public void settings() {
@@ -38,6 +40,8 @@ public class FlappyBirdGame extends PApplet {
 		backgroundImage = loadImage("background.png");
 		powerUpImage1 = loadImage("pixelcircle1.png");
 		powerUpImage2 = loadImage("pixelcircle2.png");
+		powerUpImage3 = loadImage("pixelcircle3.png");
+
 
 	}
 	
@@ -63,6 +67,10 @@ public class FlappyBirdGame extends PApplet {
 	
 	public PImage getPowerUpImage2() {
 		return this.powerUpImage2;
+	}
+	
+	public PImage getPowerUpImage3() {
+		return this.powerUpImage3;
 	}
 	
 	public void draw() {
