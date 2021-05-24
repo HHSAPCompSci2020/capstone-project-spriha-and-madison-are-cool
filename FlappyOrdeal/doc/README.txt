@@ -1,5 +1,5 @@
 ﻿Flappy Ordeal
-Revision 5/22/2021
+Revision 5/24/2021
 Maddison Tipett and Spriha Pandey
 
 Ever heard of the indie game Flappy Bird? In our game things get harder, and you will face a Flappy Ordeal! The Flappy Bird has to flap up or dive down in an effort to fly in between two pipes, and it if it crashes into the pipes you lose! In this ordeal, the bird also gets hungry, and needs to eat food to maintain its stamina. Things get harder when some of the pipes start to move up and down, but no worries! The player may stumble upon some powers that will grant the bird full stamina for one game or the power to freeze  all moving obstacles.
