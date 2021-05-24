@@ -1,11 +1,15 @@
 /**
- * The Background class represnts the Background that will be drawn when the game starts
+ * The Background class represents the Background that will be drawn when the game starts
  * @author sprihapandey
  *
  */
 public class background extends MovingImage{
 	
-	
+	/**
+	 * Constructs a MovingImage with the given coordinates
+	 * @param x the x - coordinate of the image
+	 * @param y the y - coordinate of the image
+	 */
 	public background(double x, double y) {
 		super(x, y, FlappyBirdGame.DRAWING_WIDTH, FlappyBirdGame.DRAWING_HEIGHT);
 	}

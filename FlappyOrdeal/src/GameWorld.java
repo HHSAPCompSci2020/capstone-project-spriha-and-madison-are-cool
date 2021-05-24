@@ -38,8 +38,7 @@ public class GameWorld {
 	private boolean levelUp;
 	private boolean gameOver;
 	private boolean start;
-	public int counter = 0;
-
+	
 	public GameWorld(int y, int width, int height) {
 		back = new background(0, 0);
 		gameLevel = new GameLevel();
@@ -162,7 +161,7 @@ public class GameWorld {
 			} else if (generateCounter % (GameLevel.GENERATE_AFTER / gameLevel.getFoodFrequency()) == 0) {
 				// Generate Food
 				foods.add(new Food(width, startY, height));
-			} else if (generateCounter == 30) {
+			} else if (generateCounter == 30 && generatedCount % 5 == 0) {
 				powerUps.add(new PowerUp(width, startY, height));
 			}
 
@@ -189,6 +188,8 @@ public class GameWorld {
 
 	private boolean checkForLevel(FlappyBirdGame app) {
 		if (gameOver) {
+			flapOn = false;
+			diveOn = false;
 			app.pushStyle();
 			levelUp = true;
 			gameOver = true;
@@ -221,19 +222,19 @@ public class GameWorld {
 	}
 
 	public void keyPressed(int keyCode) {
-		if (keyCode == KeyEvent.VK_UP) {
+		if (keyCode == KeyEvent.VK_UP && start) {
 			flapOn = true;
 			diveOn = false;
-		} else if (keyCode == KeyEvent.VK_DOWN) {
+		} else if (keyCode == KeyEvent.VK_DOWN && start) {
 			diveOn = true;
 			flapOn = false;
 		}
 	}
 
 	public void keyReleased(int keyCode) {
-		if (keyCode == KeyEvent.VK_UP) {
+		if (keyCode == KeyEvent.VK_UP && start) {
 			flapOn = false;
-		} else if (keyCode == KeyEvent.VK_DOWN) {
+		} else if (keyCode == KeyEvent.VK_DOWN && start) {
 			diveOn = false;
 		}
 	}
