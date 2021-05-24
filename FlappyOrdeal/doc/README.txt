@@ -49,6 +49,7 @@ Credits
 			Obstacle.java (drawing moving obstacles)
 			FlappyBirdGame.java
 			GameWorld.java
+			Finding Graphics/Images
 
 	External Credit
 		Main.java - GameOfLife
@@ -57,3 +58,6 @@ Credits
 		Obstacle Image - https://www.google.com/url?sa=i&url=http%3A%2F%2Fanimalia-life.club%2Fother%2Fflappy-bird-bird-png-transparent.html&psig=AOvVaw1ThIUl4r4VSI1vt2zQ01nK&ust=1621805842844000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCMi0heWf3vACFQAAAAAdAAAAABAE
 		Food Image - https://lh3.googleusercontent.com/proxy/1sRps5wC9fHKu32EtEC3n6zUjYM68p5EA8fJ5IBizSOjI5j0uR_Xoh_QQhySA02qvcrc6hWNB5cs8bvPFqYFRAra2v_WNqAX
 		Background Image - https://user-images.githubusercontent.com/18351809/46888871-624a3900-ce7f-11e8-808e-99fd90c8a3f4.png
+		Power Up Image 1 - https://lh3.googleusercontent.com/proxy/pwH-zY43avQqp0Q9QyxH1BFIuW2uPwfwxDbNzibNS-265klTUIztBiAX0aXKoSoiulpXz6ueU__OaDP24qQuOvq-y7Fw3BYf
+		Power Up Image 2 - https://lh3.googleusercontent.com/proxy/J4t_sViIWavHRFL0C9Uyd3qgpNhpR34aAjUSZURlJ9pxgd7aSIGFUgCJ6eWwVvHm4agHk1M1rLKoLn9HYB4Iv5q-gDmzxpaj
+		Power Up Image 3 - https://lh3.googleusercontent.com/proxy/pwH-zY43avQqp0Q9QyxH1BFIuW2uPwfwxDbNzibNS-265klTUIztBiAX0aXKoSoiulpXz6ueU__OaDP24qQuOvq-y7Fw3BYf and edited with Adobe Photoshop
