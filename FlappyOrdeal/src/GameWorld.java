@@ -13,6 +13,8 @@ public class GameWorld {
 	private int startY;
 	private int width;
 	private int height;
+	
+	public int scoreIncrement = 1;
 
 	private FlappyBird bird;
 	private boolean flapOn;
@@ -23,7 +25,9 @@ public class GameWorld {
 
 	private ArrayList<Obstacle> obstacles;
 	private ArrayList<Obstacle> removedObstacles;
+	
 	private background back;
+	
 	private ArrayList<PowerUp> powerUps;
 	private ArrayList<PowerUp> removedPowerUps;
 
@@ -104,7 +108,7 @@ public class GameWorld {
 					removedObstacles.add(o);
 				}
 
-				bird.incrementScore(o, 1); // checks to see if got a score powerup, adds 2 if yes
+				bird.incrementScore(o, scoreIncrement); // checks to see if got a score powerup, adds 2 if yes
 			}
 
 			for (PowerUp p : powerUps) {
@@ -126,11 +130,11 @@ public class GameWorld {
 				// Generate Food
 
 				foods.add(new Food(width, startY, height));
-			} else if (generateCounter == 45) {
-				// System.out.println("+++++counter: " + generateCounter);
+			} else if (generateCounter == 30) {
+				 System.out.println("+++++counter: " + generateCounter);
 				powerUps.add(new PowerUp(width, startY, height));
 			}
-			// System.out.println("generateCounter"+ generateCounter);
+			 System.out.println("generateCounter"+ generateCounter);
 
 			generateCounter--;
 
@@ -138,6 +142,7 @@ public class GameWorld {
 
 			app.popStyle();
 			this.updateFoods();
+			this.updatePowerUps();
 		} else {
 			int answer = JOptionPane.showConfirmDialog(null, "Play?", "FLAPPY ORDEAL", JOptionPane.YES_OPTION);
 			if (answer == JOptionPane.YES_OPTION)

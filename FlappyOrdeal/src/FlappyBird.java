@@ -53,7 +53,7 @@ public class FlappyBird extends MovingImage{
 	
 	public boolean poweredUp(PowerUp p) {
 		if(this.intersects(p)) {
-			return true ;
+			return true;
 		}
 		return false ;
 	}

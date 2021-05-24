@@ -31,7 +31,8 @@ public class Obstacle extends Rectangle2D.Double {
 	}
 
 	public boolean hit(FlappyBird b) {
-		Rectangle2D.Double intersectRect = new Rectangle2D.Double((float)b.getX()+15, (float)b.getY()+10 , (float)b.getWidth()-35, (float)b.getHeight()-20);
+		Rectangle2D.Double intersectRect = new Rectangle2D.Double((float) b.getX() + 15, (float) b.getY() + 10,
+				(float) b.getWidth() - 35, (float) b.getHeight() - 20);
 		if (topRect.intersects(intersectRect) || bottomRect.intersects(intersectRect)) {
 			return true;
 		}
@@ -62,8 +63,12 @@ public class Obstacle extends Rectangle2D.Double {
 		} else {
 			shiftIncrement = -shiftIncrement;
 		}
-}
-	
+		
+		if(PowerUp.typeOfPowerUp() == 2) {
+			shiftIncrement = 0;
+		}
+	}
+
 	public Rectangle2D.Double getEmptySpaceRectangle() {
 		return new Rectangle2D.Double(topRect.x, topRect.y + topRect.height, OBSTACLE_WIDTH, OBSTACLE_GAP);
 	}
@@ -71,17 +76,22 @@ public class Obstacle extends Rectangle2D.Double {
 	public void draw(FlappyBirdGame app) { // collision only works for first obstacle
 		app.pushStyle();
 		app.fill(255);
-		/*app.rect((float) topRect.x, (float) topRect.y, (float) topRect.width, (float) topRect.height);
-		app.rect((float) bottomRect.x, (float) bottomRect.y, (float) bottomRect.width, (float) bottomRect.height);*/
-		app.image(app.getObstacleTopImage(), (float)topRect.x, (float)topRect.y, (float)topRect.width, (float)topRect.height);
-		app.image(app.getObstacleBottomImage(), (float)bottomRect.x, (float)bottomRect.y, (float)bottomRect.width, (float)bottomRect.height);
+		/*
+		 * app.rect((float) topRect.x, (float) topRect.y, (float) topRect.width, (float)
+		 * topRect.height); app.rect((float) bottomRect.x, (float) bottomRect.y, (float)
+		 * bottomRect.width, (float) bottomRect.height);
+		 */
+		app.image(app.getObstacleTopImage(), (float) topRect.x, (float) topRect.y, (float) topRect.width,
+				(float) topRect.height);
+		app.image(app.getObstacleBottomImage(), (float) bottomRect.x, (float) bottomRect.y, (float) bottomRect.width,
+				(float) bottomRect.height);
 
 		int min = (int) (Math.random() * (0.4 * FlappyBirdGame.DRAWING_HEIGHT) + 0.1 * FlappyBirdGame.DRAWING_HEIGHT);
 		// shiftOpening(1.5, (int) (Math.random() * (0.4*FlappyBirdGame.DRAWING_HEIGHT)
 		// + 0.1*FlappyBirdGame.DRAWING_HEIGHT), min + 300/*(int)(Math.random() *
 		// (0.4*FlappyBirdGame.DRAWING_HEIGHT) + 0.5)*/);
-		if(move)
-		shiftOpening();
+		if (move)
+			shiftOpening();
 		app.popStyle();
 	}
 }

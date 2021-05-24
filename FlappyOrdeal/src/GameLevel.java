@@ -1,7 +1,7 @@
 
 public class GameLevel {
 	public static int MAX_LEVEL = 1 ;
-	public static int GENERATE_AFTER = 100 ;
+	public static int GENERATE_AFTER = 100;
 	
 	private int speed ;
 	private int foodFrequency ;
