@@ -64,7 +64,7 @@ public class FlappyBird extends MovingImage{
 		}
 		if(stamina < 0) {
 			stamina = 0 ;
-		}
+		} 
 	}
 /**
  * Draws the rectangle representing the bird, moves it up or down if necessary, decreases the stamina of the bird, and makes sure the bird does not go out of the window

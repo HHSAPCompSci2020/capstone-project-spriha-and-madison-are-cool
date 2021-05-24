@@ -10,9 +10,13 @@ public class PowerUp extends MovingImage {
 
 	private static double powerUpWidth = 50;
 	private static double powerUpHeight = 50;
+	
+	private FlappyBird bird;
+	//public static double powerUp
 
 	public PowerUp(int x, int y, int height) {
 		super(x, Math.random() * (height - 100) + y + powerUpHeight, powerUpWidth, powerUpHeight);
+		//bird.getBird();
 	}
 
 	public boolean move(int velocity) {
@@ -23,35 +27,38 @@ public class PowerUp extends MovingImage {
 		return true;
 	}
 
+	public void maxStamina() {
+		
+	}
+	
+	public void freezeObstacles() {
+		
+	}
+	
+	public void doublePoints() {
+		
+	}
+	
+	public void slowBird() {
+		
+	}
+	
 	public void typeOfPowerUp() {
 		int x = (int) Math.random() * 40;
 		if (x <= 10) {
-
+			// freezes stamina 
 		} else if (x > 10 && x <= 20) {
-
+			// freezes obstacles
 		} else if (x > 20 && x <= 30) {
-
+			// grants double points
 		} else if (x > 30 && x <= 40) {
-
+			// slows down bird
 		}
 	}
 
 	public void draw(FlappyBirdGame app) {
+		typeOfPowerUp();
 		app.pushStyle();
-
-//		if (purp() == true) {
-//			app.fill(238, 130, 238);
-//			app.ellipse((float) x, (float) y, (float) width, (float) height);
-//		} else if (blue() == true) {
-//			app.fill(0, 0, 255);
-//			app.ellipse((float) x, (float) y, (float) width, (float) height);
-//		} else if (orange() == true) {
-//			app.fill(255, 153, 51);
-//			app.ellipse((float) x, (float) y, (float) width, (float) height);
-//		} else if (red() == true) {
-//			app.fill(255, 0, 0);
-//			app.ellipse((float) x, (float) y, (float) width, (float) height);
-//		}
 
 		app.fill(238, 130, 238);
 		app.ellipse((float) x, (float) y, (float) width, (float) height);

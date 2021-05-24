@@ -5,11 +5,13 @@ public class GameLevel {
 	
 	private int speed ;
 	private int foodFrequency ;
+	private int powerUpFrequency;
 	private int maxObstacleCount ;
 	
 	public GameLevel() {
 		this.speed = 5 ;
-		this.foodFrequency = 2 ;			
+		this.foodFrequency = 2 ;	
+		this.powerUpFrequency = 1;
 	}
 	
 
@@ -19,6 +21,10 @@ public class GameLevel {
 
 	public int getFoodFrequency() {
 		return foodFrequency ;
+	}
+	
+	public int getPowerUpFrequency() {
+		return powerUpFrequency;
 	}
 
 	public int getMaxObstacleCount() {
