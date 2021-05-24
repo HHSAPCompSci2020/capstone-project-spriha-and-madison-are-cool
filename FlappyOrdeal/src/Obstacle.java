@@ -1,7 +1,7 @@
 import java.awt.geom.Rectangle2D;
 import java.util.Random;
 
-public class Obstacle extends MovingImage {
+public class Obstacle extends Rectangle2D.Double {
 	private static int OBSTACLE_WIDTH = 100;
 	private static int OBSTACLE_GAP = 115;
 
@@ -23,7 +23,7 @@ public class Obstacle extends MovingImage {
 		double bottomHeight = FlappyBirdGame.DRAWING_HEIGHT - (y + topHeight + space);
 		topRect = new Rectangle2D.Double(x, y, width, topHeight);
 		bottomRect = new Rectangle2D.Double(x, bottomY, width, bottomHeight);
-		shiftIncrement = (float) -1;
+		shiftIncrement = (float) -1.5;
 		minShiftExtent = 50;
 		maxShiftExtent = height - 50;
 		Random r = new Random();

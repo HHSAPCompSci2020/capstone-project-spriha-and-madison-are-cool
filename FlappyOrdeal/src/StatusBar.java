@@ -72,11 +72,14 @@ public class StatusBar {
 
 		app.fill(0,255,0);
 		app.noStroke();
-		app.rect(staminaX, staminaY, (float)(staminaWidth * stamina / 1000.0) ,  staminaHeight);
+		app.rect(staminaX, staminaY, (float)(staminaWidth * stamina / bird.getMaxStamina()) ,  staminaHeight);
 		
 		if(stamina < 100) {
 			app.noFill();
-			app.rect((float)(staminaX+staminaWidth * stamina / 100.0), staminaY, (float)(staminaWidth * (1000 - stamina) / 1000.0) , staminaHeight);			
+			app.rect((float)(staminaX+staminaWidth * stamina / 100.0), staminaY, (float)(staminaWidth * (1000 - stamina) / 1000.0) , staminaHeight);
+			app.fill(255,0,0);
+			app.noStroke();
+			app.rect(staminaX, staminaY, (float)(staminaWidth * stamina / bird.getMaxStamina()) ,  staminaHeight);
 		}
 
 		app.noFill();
