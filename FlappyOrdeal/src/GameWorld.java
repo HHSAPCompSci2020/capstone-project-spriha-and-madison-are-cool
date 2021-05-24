@@ -129,7 +129,7 @@ public class GameWorld {
 					if (p.typeOfPowerUp() == 1) {
 						bird.updateStamina(1000);
 					} else if (p.typeOfPowerUp() == 2) {
-						
+						// obstacles.shiftIncrement = 0;
 					} else if (p.typeOfPowerUp() == 3) {
 						scoreIncrement = 2;
 					}
