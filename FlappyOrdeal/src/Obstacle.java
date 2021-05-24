@@ -56,13 +56,6 @@ public class Obstacle extends Rectangle2D.Double {
 		return false;
 	}
 	
-	public float getShiftIncr() {
-		return shiftIncrement;
-	}
-	
-	public void setShiftIncr(float x) {
-		shiftIncrement = x;
-	}
 	/**
 	 * Moves the obstacle in the horizontal direction with given speed
 	 * @param speed the speed of the obstacle
