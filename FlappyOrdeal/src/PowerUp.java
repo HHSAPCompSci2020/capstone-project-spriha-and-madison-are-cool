@@ -1,10 +1,14 @@
 
 public class PowerUp extends MovingImage {
-	/*
+	/**
 	 * Different colours for different powerups
 	 * 
-	 * PowerUp 1: freezes stamina (purple) PowerUp 2: freezes movement of obstacles
-	 * (blue) PowerUp 3: grants double points (orange)
+	 * PowerUp 1: freezes stamina 
+	 * PowerUp 2: freezes movement of obstacles
+	 * PowerUp 3: grants double points
+	 * 
+	 * @author Madison Tippett
+	 * 
 	 */
 
 	private static double powerUpWidth = 50;
@@ -12,14 +16,23 @@ public class PowerUp extends MovingImage {
 	private int powerUpType = (int) (Math.random() * 30);
 	private int timeRemaining = 5;
 
-	private FlappyBird bird;
-	// public static double powerUp
-
+	/**
+	 * Constructor for the PowerUp
+	 * 
+	 * @param x sets the x coordinate of the power up
+	 * @param y sets the y coordinate of the power up
+	 * @param height sets the height of the power up
+	 */
 	public PowerUp(int x, int y, int height) {
 		super(x, Math.random() * (height - 100) + y + powerUpHeight, powerUpWidth, powerUpHeight);
-		// bird.getBird();
 	}
 
+	/**
+	 * Moves the PowerUp object and returns true if the PowerUp object is in the window
+	 * 
+	 * @param velocity how fast the object moves
+	 * @return returns true if the PowerUp object is in the window, false otherwise
+	 */
 	public boolean move(int velocity) {
 		this.moveByAmount(-velocity, 0);
 		if (x < -powerUpWidth) {
@@ -28,30 +41,21 @@ public class PowerUp extends MovingImage {
 		return true;
 	}
 
+	/**
+	 * Measures time by tick
+	 * 
+	 * @return returns time remaining (the tick)
+	 */
 	public int tick() {
 		timeRemaining--;
 		return timeRemaining;
 	}
-//
-//	public void maxStamina() {
-//		// get GameWorld Flappy Bird
-//
-//		// get stamina
-//		FlappyBird.getStamina();
-//
-//		// add 500 to stamina
-//		stamina += 500;
-//	}
-//
-//	public void freezeObstacles() {
-//		// turn off shiftOpening
-//	}
-//
-//	public void doublePoints() {
-//		// set incrementScore amt to 2
-//		GameWorld.setIncrement(2);
-//	}
 
+	/**
+	 * Determines the type of power up
+	 * 
+	 * @return returns 1, 2, or 3 depending on the power up
+	 */
 	public int typeOfPowerUp() {
 		int x = powerUpType;
 		if (x <= 10) {
@@ -68,6 +72,11 @@ public class PowerUp extends MovingImage {
 		return 0;
 	}
 
+	/**
+	 * Draws the Power Up object on the PApplet
+	 * 
+	 * @param app The PApplet on which the Power Up is drawn
+	 */
 	public void draw(FlappyBirdGame app) {
 		app.pushStyle();
 		if (typeOfPowerUp() == 1) {
