@@ -99,7 +99,7 @@ public class Obstacle extends Rectangle2D.Double {
 	 * Draws the two images on the given FlappyBirdGame and moves them if necessary
 	 * @param app the PApplet on which the Obstacle is drawn
 	 */
-	public void draw(FlappyBirdGame app) { // collision only works for first obstacle
+	public void draw(FlappyBirdGame app) { 
 		app.pushStyle();
 		app.image(app.getObstacleTopImage(), (float) topRect.x, (float) topRect.y, (float) topRect.width,
 				(float) topRect.height);
