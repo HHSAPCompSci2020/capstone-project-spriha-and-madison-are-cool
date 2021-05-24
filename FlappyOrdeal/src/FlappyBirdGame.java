@@ -17,6 +17,9 @@ public class FlappyBirdGame extends PApplet {
 	private PImage obstacleBottomImage;
 	private PImage foodImage;
 	private PImage backgroundImage;
+	private PImage powerUpImage1;
+	private PImage powerUpImage2;
+
 
 	public void settings() {
 		size(DRAWING_WIDTH, DRAWING_HEIGHT);
@@ -33,6 +36,9 @@ public class FlappyBirdGame extends PApplet {
 		obstacleBottomImage = loadImage("obstacle-bottom.png");
 		foodImage = loadImage("Food.png");
 		backgroundImage = loadImage("background.png");
+		powerUpImage1 = loadImage("pixelcircle1.png");
+		powerUpImage2 = loadImage("pixelcircle2.png");
+
 	}
 	
 	public PImage getBirdImage() {
@@ -50,6 +56,15 @@ public class FlappyBirdGame extends PApplet {
 	public PImage getBackgroundImage() {
 		return this.backgroundImage;
 	}
+	
+	public PImage getPowerUpImage1() {
+		return this.powerUpImage1;
+	}
+	
+	public PImage getPowerUpImage2() {
+		return this.powerUpImage2;
+	}
+	
 	public void draw() {
 		this.background(255);
 		gameWorld.draw(this);
