@@ -129,8 +129,7 @@ public class GameWorld {
 					if (p.typeOfPowerUp() == 1) {
 						bird.updateStamina(1000);
 					} else if (p.typeOfPowerUp() == 2) {
-						// sets move() in obstacle to false
-						
+							Obstacle.freeze = true;		
 					} else if (p.typeOfPowerUp() == 3) {
 						scoreIncrement = 2;
 					}
@@ -155,6 +154,8 @@ public class GameWorld {
 						removeActivePowerUps.add(p);
 						if (p.typeOfPowerUp() == 3) {
 							scoreIncrement = 1;
+						} if (p.typeOfPowerUp() == 2) {
+							Obstacle.freeze = false;		
 						}
 					}
 				}

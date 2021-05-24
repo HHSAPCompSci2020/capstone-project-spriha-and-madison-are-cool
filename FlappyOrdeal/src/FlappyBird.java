@@ -60,9 +60,6 @@ public class FlappyBird extends MovingImage{
 	 */
 	public boolean poweredUp(PowerUp p) {
 		if(this.intersects(p)) {
-			if(p.typeOfPowerUp() == 2) {
-				Obstacle.freeze = true;
-			}
 			return true;
 		}
 		return false ;
